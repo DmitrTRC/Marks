@@ -1,6 +1,7 @@
 Project Marks.
  *
- * @author  Arina Morozova
+ * @author  Arina Morozova, Dmitry Morozov
  * @version 0.1
  * @since   0.1
  */
+
