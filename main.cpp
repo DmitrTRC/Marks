@@ -63,3 +63,21 @@ void logbook () {
         }
     }
 }
+
+void logbook2 () {
+    bool exit_flag = false;
+    while (!exit_flag) {
+        int choice = logbook_menu ();
+        if (choice == 1) {
+            std::cout << "Add a new entry" << std::endl;
+        } else if (choice == 2) {
+            std::cout << "Search for an entry" << std::endl;
+        } else if (choice == 3) {
+            std::cout << "Exiting" << std::endl;
+            exit_flag = true;
+        } else {
+            std::cout << "Invalid choice" << std::endl;
+        }
+
+    }
+}
