@@ -10,4 +10,4 @@ find_package(jsoncpp CONFIG REQUIRED)
 
 add_executable(Marks main.cpp)
 
-
+target_link_libraries(Marks PRIVATE jsoncpp_object jsoncpp_static JsonCpp::JsonCpp)
