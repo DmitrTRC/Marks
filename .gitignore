@@ -1,4 +1,5 @@
 /.idea/
+/vcpkg/
 
 ### C++ template
 # Prerequisites

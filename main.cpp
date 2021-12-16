@@ -65,7 +65,7 @@ void logbook () {
 }
 
 void logbook2 () {
-    bool exit_flag = false;
+    bool exit_flag = false; // Exit flag.  Do not use with while(true)
     while (!exit_flag) {
         int choice = logbook_menu ();
         if (choice == 1) {
