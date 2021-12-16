@@ -2,6 +2,7 @@
 
 
 void log_menu () {
+//TODO:  Arisha,  add your code here
 
     std::cout << "Menu:" << std::endl;
 };
