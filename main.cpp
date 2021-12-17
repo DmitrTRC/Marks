@@ -12,6 +12,7 @@ void log_menu () {
 //* Enter your choice:
 //end
 
+//TODO: Arisha, redefine log_menu function to return input choice from user
 
     std::cout << "Menu:" << std::endl;
 };
