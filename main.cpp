@@ -3,6 +3,15 @@
 
 void log_menu () {
 //TODO:  Arisha,  add your code here
+//* Menu example:
+//*  Logging menu
+//* 1. Add Entry
+//* 2. Delete Entry
+//* 3. Print Entries
+//* 4. Exit
+//* Enter your choice:
+
+
 
     std::cout << "Menu:" << std::endl;
 };
