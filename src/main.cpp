@@ -21,7 +21,8 @@ int jsonWrite () {
     Json::Value root;
     Json::Value data;
     constexpr bool shouldUseOldWay = false;
-    root["action"] = "run";
+    root["action"] = "Add mark";
+    root["user"] = "admin";
     root["data"]["value"] = mark.value;
     root["data"]["weight"] = mark.weight;
     root["data"]["subject"] = mark.subject;
