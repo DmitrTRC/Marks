@@ -1,5 +1,7 @@
 #include <iostream>
 #include <json/json.h>
+#include  "main.h"
+#include "mark.h"
 
 
 /** Entry point for Marks application
@@ -14,31 +16,33 @@ int logbook_menu ();
 
 void clear_screen ();
 
-int jsonWrite (){
+int jsonWrite () {
+    Mark mark ("Devops", 5, 2);
+    Json::Value root;
+    Json::Value data;
+    constexpr bool shouldUseOldWay = false;
+    root["action"] = "run";
+    root["data"]["value"] = mark.value;
+    root["data"]["weight"] = mark.weight;
+    root["data"]["subject"] = mark.subject;
 
-        Json::Value root;
-        Json::Value data;
-        constexpr bool shouldUseOldWay = false;
-        root["action"] = "run";
-        data["number"] = 1;
-        root["data"] = data;
-
-        if (shouldUseOldWay) {
-            Json::FastWriter writer;
-            const std::string json_file = writer.write(root);
-            std::cout << json_file << std::endl;
-        } else {
-            Json::StreamWriterBuilder builder;
-            const std::string json_file = Json::writeString(builder, root);
-            std::cout << json_file << std::endl;
-        }
-        return EXIT_SUCCESS;
+    if (shouldUseOldWay) {
+        Json::FastWriter writer;
+        const std::string json_file = writer.write (root);
+        std::cout << json_file << std::endl;
+    } else {
+        Json::StreamWriterBuilder builder;
+        const std::string json_file = Json::writeString (builder, root);
+        std::cout << json_file << std::endl;
+    }
+    return EXIT_SUCCESS;
 
 }
 
 int main (int argc, char *argv[]) {
     if (argc < 2) {
         std::cout << "Interactive mode selected." << std::endl;
+
         logbook ();
     } else {
         std::cout << "Console mode selected." << std::endl;
@@ -58,6 +62,7 @@ int logbook_menu () {
     std::cout << "1. Add Entry" << std::endl;
     std::cout << "2. View Entries" << std::endl;
     std::cout << "3. Exit" << std::endl;
+    std::cout << "4. Generate JSON" << std::endl;
     std::cout << "Enter your choice: ";
     int choice;
     std::cin >> choice;
@@ -79,6 +84,9 @@ void logbook () {
             case 3:
                 std::cout << "Exiting" << std::endl;
                 exit_flag = true;
+                break;
+            case 4:
+                jsonWrite ();
                 break;
             default:
                 std::cout << "Invalid choice" << std::endl;
