@@ -1,0 +1,25 @@
+{
+  "name": "Dmitry",
+  "age": 25,
+  "city": "Moscow",
+  "hobbies": [
+    "programming",
+    "music",
+    "skiing"
+  ],
+  "isMarried": false,
+  "family": [
+    {
+      "name": "Ivan",
+      "age": 25
+    },
+    {
+      "name": "Sasha",
+      "age": 22
+    },
+    {
+      "name": "Vasya",
+      "age": 18
+    }
+  ]
+}

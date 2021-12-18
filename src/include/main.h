@@ -5,5 +5,7 @@
 #ifndef MARKS_MAIN_H
 #define MARKS_MAIN_H
 
+#include <fstream>
+
 
 #endif //MARKS_MAIN_H

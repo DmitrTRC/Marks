@@ -16,7 +16,42 @@ int logbook_menu ();
 
 void clear_screen ();
 
-int jsonWrite () {
+int DataReader (const std::string &file_name) {
+    std::ifstream file;
+    file.open (file_name);
+    if (!file.is_open ()) {
+        std::cout << "File not found" << std::endl;
+        return -1;
+    }
+    Json::Value root;
+    Json::Reader reader;
+    bool parsingSuccessful = reader.parse (file, root);
+    if (!parsingSuccessful) {
+        std::cout << "Failed to parse configuration\n"
+                  << reader.getFormattedErrorMessages ();
+        return -1;
+    }
+    std::cout << root.toStyledString () << std::endl;
+    return 0;
+}
+
+int DataReader2 (const std::string &filename) {
+    Json::Value root;
+    std::ifstream ifs;
+    ifs.open (filename);
+
+    Json::CharReaderBuilder builder;
+    builder["collectComments"] = true;
+    JSONCPP_STRING errs;
+    if (!parseFromStream (builder, ifs, &root, &errs)) {
+        std::cout << errs << std::endl;
+        return EXIT_FAILURE;
+    }
+    std::cout << root.toStyledString () << std::endl;
+    return EXIT_SUCCESS;
+}
+
+int DataWrite () {
     Mark mark ("Devops", 5, 2);
     Json::Value root;
     Json::Value data;
@@ -81,13 +116,15 @@ void logbook () {
                 break;
             case 2:
                 std::cout << "Search for an entry" << std::endl;
+                DataReader ("data.json");
+                DataReader2 ("data.json");
                 break;
             case 3:
                 std::cout << "Exiting" << std::endl;
                 exit_flag = true;
                 break;
             case 4:
-                jsonWrite ();
+                DataWrite ();
                 break;
             default:
                 std::cout << "Invalid choice" << std::endl;
