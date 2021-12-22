@@ -23,18 +23,20 @@ enum class MarkValue {
     VeryBad,
     Bad,
     Normal,
-    Good,
     VeryGood,
     Excellent
 };
 
+
+
 class Mark {
 public:
-    Mark (const std::string &subject, const int &value, const int &weight) : subject (subject), value (value),
+    Mark (const std::string &subject, const MarkValue& value, ) : subject (subject), value (value),
                                                                              weight (weight) {}
 
     std::string subject;
-    int value;
+    MarkValue value;
+    MarkType type;
     int weight;
     int cost = 0;
 };
