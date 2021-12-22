@@ -37,6 +37,50 @@ enum class MarkValue {
     Excellent
 };
 
+enum class Subjects {
+    None,
+    Algorithms,
+    Cpp,
+    Python,
+    Java,
+    C,
+    CSharp,
+    HTML,
+    CSS,
+    JS,
+    PHP,
+    SQL,
+    JavaScript,
+    Pascal,
+    Basic,
+    Assembly,
+    Math,
+    Physics,
+    ComputerScience
+};
+
+std::map<std::string, Subjects> subjectMap = {
+        {"None",            Subjects::None},
+        {"Algorithms",      Subjects::Algorithms},
+        {"C++",             Subjects::Cpp},
+        {"Python",          Subjects::Python},
+        {"Java",            Subjects::Java},
+        {"C",               Subjects::C},
+        {"C#",              Subjects::CSharp},
+        {"HTML",            Subjects::HTML},
+        {"CSS",             Subjects::CSS},
+        {"JS",              Subjects::JS},
+        {"PHP",             Subjects::PHP},
+        {"SQL",             Subjects::SQL},
+        {"JavaScript",      Subjects::JavaScript},
+        {"Pascal",          Subjects::Pascal},
+        {"Basic",           Subjects::Basic},
+        {"Assembly",        Subjects::Assembly},
+        {"Math",            Subjects::Math},
+        {"Physics",         Subjects::Physics},
+        {"ComputerScience", Subjects::ComputerScience}
+};
+
 std::map<std::string, MarkValue> markValueMap = {
         {"None",      MarkValue::None},
         {"VeryBad",   MarkValue::VeryBad},
