@@ -9,6 +9,25 @@
 #include <vector>
 
 
+enum class MarkType {
+    None,
+    HomeWork,
+    Lesson,
+    Test,
+    Exam,
+    Final
+};
+
+enum class MarkValue {
+    None,
+    VeryBad,
+    Bad,
+    Normal,
+    Good,
+    VeryGood,
+    Excellent
+};
+
 class Mark {
 public:
     Mark (const std::string &subject, const int &value, const int &weight) : subject (subject), value (value),
@@ -17,7 +36,7 @@ public:
     std::string subject;
     int value;
     int weight;
-    std::vector<int> marks = {5, 4, 4, 3, 3};
+    int cost = 0;
 };
 
 #endif //MARKS_MARK_H
