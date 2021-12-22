@@ -11,6 +11,6 @@ add_subdirectory(src)
 
 include_directories(src/include)
 
-add_executable(Marks src/main.cpp src/mark.cpp src/include/mark.h src/include/main.h src/DBHandler.cpp src/DBHandler.h)
+add_executable(Marks src/main.cpp src/mark.cpp src/include/mark.h src/include/main.h src/DBHandler.cpp src/DBHandler.h src/logbook.cpp src/include/logbook.h)
 
 target_link_libraries(Marks PRIVATE jsoncpp_object jsoncpp_static JsonCpp::JsonCpp)
