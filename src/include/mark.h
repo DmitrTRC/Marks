@@ -6,6 +6,7 @@
 #define MARKS_MARK_H
 
 #include <iostream>
+#include <vector>
 
 
 class Mark {
@@ -16,6 +17,7 @@ public:
     std::string subject;
     int value;
     int weight;
+    std::vector<int> marks = {5, 4, 4, 3, 3};
 };
 
 #endif //MARKS_MARK_H

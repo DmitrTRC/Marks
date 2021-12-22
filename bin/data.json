@@ -2,6 +2,7 @@
   "name": "Dmitry",
   "age": 25,
   "city": "Moscow",
+  "marks": [5, 4, 5, 3 , 4, 5, 4, 3, 4, 5],
   "hobbies": [
     "programming",
     "music",
