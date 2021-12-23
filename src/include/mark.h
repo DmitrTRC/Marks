@@ -19,14 +19,6 @@ enum class MarkType {
     Final
 };
 
-std::map<std::string, MarkType> markTypeMap = {
-        {"None",     MarkType::None},
-        {"HomeWork", MarkType::HomeWork},
-        {"Lesson",   MarkType::Lesson},
-        {"Test",     MarkType::Test},
-        {"Exam",     MarkType::Exam},
-        {"Final",    MarkType::Final}
-};
 
 enum class MarkValue {
     None,
@@ -59,7 +51,16 @@ enum class Subjects {
     ComputerScience
 };
 
-std::map<std::string, Subjects> subjectMap = {
+const std::map<std::string, MarkType> markTypeMap = {
+        {"None",     MarkType::None},
+        {"HomeWork", MarkType::HomeWork},
+        {"Lesson",   MarkType::Lesson},
+        {"Test",     MarkType::Test},
+        {"Exam",     MarkType::Exam},
+        {"Final",    MarkType::Final}
+};
+
+const std::map<std::string, Subjects> subjectMap = {
         {"None",            Subjects::None},
         {"Algorithms",      Subjects::Algorithms},
         {"C++",             Subjects::Cpp},
@@ -81,7 +82,7 @@ std::map<std::string, Subjects> subjectMap = {
         {"ComputerScience", Subjects::ComputerScience}
 };
 
-std::map<std::string, MarkValue> markValueMap = {
+const std::map<std::string, MarkValue> markValueMap = {
         {"None",      MarkValue::None},
         {"VeryBad",   MarkValue::VeryBad},
         {"Bad",       MarkValue::Bad},
@@ -99,8 +100,8 @@ std::map<std::string, MarkValue> markValueMap = {
 
 class Mark {
 public:
-    Mark (const std::string &subject, const MarkValue &value,) : subject (subject), value (value),
-                                                                 weight (weight) {}
+    Mark (const std::string &subject_, const MarkValue &value_,const MarkType &type_ ) : subject (subject_), value (value_),
+                                                                 type (type_) {}
 
     std::string subject;
     MarkValue value;

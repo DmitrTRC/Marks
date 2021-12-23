@@ -2,7 +2,7 @@
 // Created by Dmitry Morozov on 22.12.2021.
 //
 #include "DBHandler.h"
-#include "include/Mark.h"
+#include "mark.h"
 
 
 
@@ -42,28 +42,28 @@ int DataReader2 (const std::string &filename) {
 }
 
 int DataWrite () {
-    Mark mark ("Devops", 5, 2);
-    Json::Value root;
-    Json::Value data;
-    constexpr bool shouldUseOldWay = false;
-    root["action"] = "Add mark";
-    root["user"] = "admin";
-    root["data"]["value"] = mark.value;
-    root["data"]["weight"] = mark.weight;
-    root["data"]["subject"] = mark.subject;
-    //root["marks"] = Json::parse(mark.marks.begin(), mark.marks.end(), nullptr, Json::Features::strictMode());
-
-    ;
-
-    if (shouldUseOldWay) {
-        Json::FastWriter writer;
-        const std::string json_file = writer.write (root);
-        std::cout << json_file << std::endl;
-    } else {
-        Json::StreamWriterBuilder builder;
-        const std::string json_file = Json::writeString (builder, root);
-        std::cout << json_file << std::endl;
-    }
+//    Mark mark ("Devops", 5, 2);
+//    Json::Value root;
+//    Json::Value data;
+//    constexpr bool shouldUseOldWay = false;
+//    root["action"] = "Add mark";
+//    root["user"] = "admin";
+//    root["data"]["value"] = mark.value;
+//    root["data"]["weight"] = mark.weight;
+//    root["data"]["subject"] = mark.subject;
+//    //root["marks"] = Json::parse(mark.marks.begin(), mark.marks.end(), nullptr, Json::Features::strictMode());
+//
+//    ;
+//
+//    if (shouldUseOldWay) {
+//        Json::FastWriter writer;
+//        const std::string json_file = writer.write (root);
+//        std::cout << json_file << std::endl;
+//    } else {
+//        Json::StreamWriterBuilder builder;
+//        const std::string json_file = Json::writeString (builder, root);
+//        std::cout << json_file << std::endl;
+//    }
     return EXIT_SUCCESS;
 
 }
