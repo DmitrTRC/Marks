@@ -6,12 +6,28 @@
 #define MARKS_LOGBOOK_H
 
 #include <iostream>
+#include "screen_util.h"
+#include "mark.h"
 
 
-void logbook ();
+//TODO: Change to class
+class Logbook {
+public:
+    //Logbook ();
 
-int logbook_menu ();
+    //~Logbook ();
 
-void clear_screen ();
+    int showMenu ();
+
+    void run ();
+
+    void addMark ();
+
+
+};
+
+
+
+
 
 #endif //MARKS_LOGBOOK_H
