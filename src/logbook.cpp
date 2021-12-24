@@ -2,6 +2,7 @@
 // Created by Dmitry Morozov on 22.12.2021.
 //
 #include <iomanip>
+#include <cstdio>
 #include "logbook.h"
 #include "screen_util.h"
 
@@ -55,13 +56,55 @@ void Logbook::addMark () {
                   << std::endl;
     }
 
-    std::cout << "Enter your choice or press ENTER to cancel in range  0 - " << subjectMap.size () - 1 << ": ";
+
     int choice;
-    std::cin >> choice;
-    while (static_cast <char> (choice) != 'q') {
-        if (choice < 0 || choice >= subjectMap.size ()) {
-            std::cout << "Invalid choice" << std::endl;
-        }
-    }
+    getChoice (choice, 0, Mark::getSubjects ().size () - 1);
+
 }
+
+//TODO: Rewrite this function
+bool Logbook::getChoice (int &choice_, int min, int max) {
+    auto result = false;
+    int choice_result (0);
+    do {
+        //std::cout << std::endl << "Enter your choice ( or 'q' to exit ) and press ENTER in range  " << min << " - " << max << ": ";
+        puts("Enter your choice ( or 'q' to exit ) and press ENTER in range  : ");
+        choice_result = _readChoice (min, max);
+        if (choice_result == -2) return result;
+        if (choice_result == -1) {
+            std::cout << "Invalid choice" << std::endl;
+            continue;
+        }
+    } while (choice_result != -1);
+
+}
+
+ int Logbook::_readChoice (int min, int max) {
+    int choice = -1;
+    std::string input;
+    int letter;
+    do {
+        //TODO: replace this with istream::readsome().
+        letter = getchar ();
+        if (letter == 'q') {
+            //TODO: Replace to const
+            choice = -2;
+            break;
+        }
+        if (isdigit (letter) && _checkBounds ( (letter), min, max)) {
+            input += letter;
+            putchar (letter);
+            choice = std::stoi (input);
+        } else {
+            putchar ('\b');
+        }
+    } while (letter != '\n');
+
+    return choice;
+}
+
+bool Logbook::_checkBounds (int n, int min, int max) {
+    return n >= min && n <= max;
+}
+
 

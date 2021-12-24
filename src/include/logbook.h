@@ -23,11 +23,14 @@ public:
 
     void addMark ();
 
+private:
+    bool getChoice (int &, int, int);
+
+     int _readChoice (int, int);
+
+    bool _checkBounds (int, int, int);
 
 };
-
-
-
 
 
 #endif //MARKS_LOGBOOK_H
