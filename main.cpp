@@ -22,6 +22,7 @@ std::cout << "Enter your choice: " << std::endl;
 std::string choice;
 std::cin >>choice;
 return choice;
+// Checked : Ok : 5
 };
 
    
