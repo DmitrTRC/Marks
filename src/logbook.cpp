@@ -68,7 +68,7 @@ bool Logbook::getChoice (int &choice_, int min, int max) {
     int choice_result (0);
     do {
         //std::cout << std::endl << "Enter your choice ( or 'q' to exit ) and press ENTER in range  " << min << " - " << max << ": ";
-        puts("Enter your choice ( or 'q' to exit ) and press ENTER in range  : ");
+        puts ("Enter your choice ( or 'q' to exit ) and press ENTER in range  : ");
         choice_result = _readChoice (min, max);
         if (choice_result == -2) return result;
         if (choice_result == -1) {
@@ -79,21 +79,20 @@ bool Logbook::getChoice (int &choice_, int min, int max) {
 
 }
 
- int Logbook::_readChoice (int min, int max) {
+int Logbook::_readChoice (int min, int max) {
     int choice = -1;
     std::string input;
-    int letter;
+    char letter;
     do {
-        //TODO: replace this with istream::readsome().
-        letter = getchar ();
+         std::cin >> letter;
+
         if (letter == 'q') {
             //TODO: Replace to const
             choice = -2;
             break;
         }
-        if (isdigit (letter) && _checkBounds ( (letter), min, max)) {
+        if (isdigit (letter) && _checkBounds ((letter), min, max)) {
             input += letter;
-            putchar (letter);
             choice = std::stoi (input);
         } else {
             putchar ('\b');
