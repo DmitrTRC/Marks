@@ -21,7 +21,7 @@ std::string log_menu () {
 };
 
 //TODO: Implement menu dispatcher
-//  void dispatch_menu_choice (int choice) {
+//  void dispatch_menu_choice () {
 //  int choice = log_menu();
 //if ( choice  == 1) {
 //   std::cout << "Marks : List" << std::endl;
