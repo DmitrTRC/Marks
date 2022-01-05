@@ -23,31 +23,10 @@ int Logbook::showMenu () {
 }
 
 void Logbook::run () {
-    bool exit_flag = false;
-    while (!exit_flag) {
-        int choice = showMenu ();
+    do {
 
-        switch (choice) {
-            case 1:
-                std::cout << "Add a new entry for logbook." << std::endl;
-                addMark ();
-                break;
-            case 2:
-                std::cout << "Search for an entry" << std::endl;
 
-                break;
-            case 3:
-                std::cout << "Exiting" << std::endl;
-                exit_flag = true;
-                break;
-            case 4:
-
-                break;
-            default:
-                std::cout << "Invalid choice" << std::endl;
-                break;
-        }
-    }
+    } while (_dispatch_menu_choice (showMenu())) ;
 }
 
 void Logbook::addMark () {
@@ -108,4 +87,36 @@ bool Logbook::_checkBounds (int n, int min, int max) {
     return n >= min && n <= max;
 }
 
+bool Logbook::_dispatch_menu_choice (const int &choice_) {
+    bool result = true;
+
+    switch (choice_) {
+        case 1:
+            std::cout << "Add a new entry for logbook." << std::endl;
+            addMark ();
+            break;
+
+        case 2:
+            std::cout << "View Journal" << std::endl;
+            break;
+
+        case 3:
+            std::cout << "Edit Mark" << std::endl;
+            break;
+
+        case 4:
+            std::cout << "Generate report" << std::endl;
+            break;
+
+        case 5:
+            std::cout << "Program finished." << std::endl;
+            result = false;
+            break;
+
+        default:
+            std::cout << "Invalid choice" << std::endl;
+            break;
+    }
+    return result;
+}
 

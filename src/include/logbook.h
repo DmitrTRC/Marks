@@ -28,7 +28,8 @@ private:
 
      int _readChoice (int, int);
 
-    bool _checkBounds (int, int, int);
+    static bool _checkBounds (int, int, int);
+    bool _dispatch_menu_choice (const int &);
 
 };
 
