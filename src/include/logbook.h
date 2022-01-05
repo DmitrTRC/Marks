@@ -17,7 +17,7 @@ public:
 
     //~Logbook ();
 
-    int showMenu ();
+    static int showMenu ();
 
     void run ();
 

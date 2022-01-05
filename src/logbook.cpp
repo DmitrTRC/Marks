@@ -10,10 +10,12 @@
 int Logbook::showMenu () {
     clearScreen (10);
     std::cout << "Logbook Menu" << std::endl;
-    std::cout << "1. Add Entry" << std::endl;
-    std::cout << "2. View Entries" << std::endl;
-    std::cout << "3. Exit" << std::endl;
-    std::cout << "4. Generate JSON" << std::endl;
+    std::cout << "1. Add new Mark" << std::endl;
+    std::cout << "2. View journal" << std::endl;
+    std::cout << "3. Edit Mark" << std::endl;
+    std::cout << "4. Generate report" << std::endl;
+    std::cout << "5. Exit" << std::endl;
+
     std::cout << "Enter your choice: ";
     int choice;
     std::cin >> choice;
@@ -84,7 +86,7 @@ int Logbook::_readChoice (int min, int max) {
     std::string input;
     char letter;
     do {
-         std::cin >> letter;
+        std::cin >> letter;
 
         if (letter == 'q') {
             //TODO: Replace to const
