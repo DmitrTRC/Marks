@@ -4,32 +4,74 @@
 #include <string>
 
 
-// int log_menu();
-std::string log_menu () {
+void show_menu () {
+    std::cout << "1. Add a new student" << std::endl;
+    std::cout << "2. Remove a student" << std::endl;
+    std::cout << "3. List all students" << std::endl;
+    std::cout << "4. Quit" << std::endl;
+}
 
-//TODO: Implement menu numeration
-    std::cout << "Menu:" << std::endl;
-    std::cout << "Show Marks log " << std::endl;
-    std::cout << "Add Marks" << std::endl;
-    std::cout << "Delete Marks" << std::endl;
-    std::cout << "Exit" << std::endl;
-    std::cout << "Enter your choice: " << std::endl;
-    std::string choice;
+int get_choice () {
+    int choice;
+    std::cout << "Enter your choice: ";
     std::cin >> choice;
     return choice;
-// Checked : Ok : 5
+}
+
+bool execute_choice (int choice) {
+    bool result = true;
+
+    switch (choice) {
+        case 1:
+            std::cout << "Add a new student" << std::endl;
+            break;
+        case 2:
+            std::cout << "Remove a student" << std::endl;
+            break;
+        case 3:
+            std::cout << "List all students" << std::endl;
+            break;
+        case 4:
+            std::cout << "Quit" << std::endl;
+            result = false;
+            break;
+
+        default:
+            std::cout << "Invalid choice" << std::endl;
+            break;
+
+    }
+    return result;
+}
+
+//bool execute_choice_2 (int choice) {
+//    bool result = true;
+//
+//    if (choice == 1) {
+//        std::cout << "Add a new student" << std::endl;
+//    } else if (choice == 2) {
+//        std::cout << "Remove a student" << std::endl;
+//    } else if (choice == 3) {
+//        std::cout << "List all students" << std::endl;
+//    } else if (choice == 4) {
+//        std::cout << "Quit" << std::endl;
+//        result = false;
+//    } else {
+//        std::cout << "Invalid choice" << std::endl;
+//    }
+//    return result;
+//}
+
+void log_menu () {
+
+    do {
+        show_menu ();
+    } while (execute_choice (get_choice ()));
 };
 
-//TODO: Implement menu dispatcher
-//  void dispatch_menu_choice () {
-//  int choice = log_menu();
-//if ( choice  == 1) {
-//   std::cout << "Marks : List" << std::endl;
-//}
-//  }
-
-
-
+//TODO: 1) Read switch() statement from the previous exercise
+//TODO: 2) Make Mark project menu.
+//TODO: 3) *Try to write tests.
 
 // 2 Modes : Console and Interactive
 int main (int argc, char *argv[]) {
@@ -41,6 +83,7 @@ int main (int argc, char *argv[]) {
     } else {
         std::cout << "Interactive mode" << std::endl;
         log_menu ();
+        std::cout << std::endl << "Bye!" << std::endl;
     }
     return 0;
 }
