@@ -6,12 +6,13 @@
 # one task don't affect another task.
 
 
-project(Marks)
+project(${PROJECT_NAME})
 
 set(CMAKE_CXX_STANDARD 20)
 
 include_directories(include)
-add_executable(Marks
+
+set ( source_files
         main.cpp
         mark.cpp
         include/mark.h
@@ -19,6 +20,9 @@ add_executable(Marks
         logbook.cpp
         include/logbook.h
         screen_util.cpp
-        include/screen_util.h)
+        include/screen_util.h )
+
+add_executable(${PROJECT_NAME} ${source_files})
+
 
 
