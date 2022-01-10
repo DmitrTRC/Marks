@@ -100,7 +100,7 @@ const std::map<std::string, MarkValue> markValueMap = {
 
 class Mark {
 public:
-    Mark (const std::string &, const MarkValue &, const MarkType &);
+    Mark (std::string , const MarkValue &, const MarkType &);
 
 
     void getMarksValues ();

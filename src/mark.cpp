@@ -4,10 +4,11 @@
 
 #include "mark.h"
 #include <algorithm>
+#include <utility>
 
 
 
-Mark::Mark (const std::string &subject_, const MarkValue &value_, const MarkType &type_) : subject (subject_),
+Mark::Mark (std::string subject_, const MarkValue &value_, const MarkType &type_) : subject (std::move(subject_)),
                                                                                            value (value_),
                                                                                            type (type_) {}
 

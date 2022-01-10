@@ -8,6 +8,17 @@
 
 project(Marks)
 
-set(CMAKE_CXX_STANDARD)
+set(CMAKE_CXX_STANDARD 20)
+
+include_directories(include)
+add_executable(Marks
+        main.cpp
+        mark.cpp
+        include/mark.h
+        include/main.h
+        logbook.cpp
+        include/logbook.h
+        screen_util.cpp
+        include/screen_util.h)
 
 
