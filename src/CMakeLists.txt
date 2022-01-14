@@ -20,7 +20,7 @@ set ( source_files
         logbook.cpp
         include/logbook.h
         screen_util.cpp
-        include/screen_util.h )
+        include/screen_util.h tst_demo.cpp include/tst_demo.h)
 
 add_executable(${PROJECT_NAME} ${source_files})
 
