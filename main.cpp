@@ -1,15 +1,61 @@
+#include <fstream>
 #include <iostream>
 
 #include <iostream>
 #include <string>
+#include <vector>
+#include <map>
+#include <ios>
+
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/text_iarchive.hpp>
+#include <boost/serialization/map.hpp>
+#include <boost/serialization/vector.hpp>
+#include <boost/serialization/string.hpp>
 
 
-void show_menu () {
-    std::cout << "1. Add a new student" << std::endl;
-    std::cout << "2. Remove a student" << std::endl;
-    std::cout << "3. List all students" << std::endl;
-    std::cout << "4. Quit" << std::endl;
+std::map<std::string, std::vector<int>> student_log;
+
+//std::map<int, int> demo_map;
+
+namespace boost::serialization {
+
+    template<class Archive>
+    void serialize (Archive &ar, std::map<std::string, std::vector<int>> &st_log) {
+        ar & st_log;
+    }
 }
+
+void save_data () {
+    std::ofstream ofs ("student_log.txt");
+    boost::archive::text_oarchive oa (ofs);
+    oa << student_log;
+}
+
+void load_data () {
+    std::ifstream ifs ("student_log.txt");
+    if (!ifs) {
+        std::cout << "Database not found. Skip loading data." << std::endl;
+        return;
+    } else {
+        boost::archive::text_iarchive ia (ifs);
+        ia >> student_log;
+    }
+
+}
+
+//TODO: Add your code here and write Mark's menu
+//TODO: Add functions handlers;
+void show_menu () {
+    std::cout << std::endl << std::endl;
+    std::cout << "\t\t\t* Main Menu *" << std::endl;
+    std::cout << "1. Add a new Mark " << std::endl;
+    std::cout << "2. Remove a Mark" << std::endl;
+    std::cout << "3. Diary" << std::endl;
+    std::cout << "4. Save Data" << std::endl;
+    std::cout << "5. Quit" << std::endl;
+}
+
 
 int get_choice () {
     int choice;
@@ -18,63 +64,103 @@ int get_choice () {
     return choice;
 }
 
+void add_mark () {
+    std::string subject_name;
+    int mark;
+
+    std::cout << std::endl;
+    std::cout << "Enter subject name: ";
+    std::cin >> subject_name;
+    transform (subject_name.begin (), subject_name.end (), subject_name.begin (), ::toupper);
+
+    std::cout << "Enter mark: ";
+    std::cin >> mark;
+    student_log[subject_name].push_back (mark);
+}
+
+bool remove_mark () {
+    std::string subject_name;
+    int mark;
+
+    std::cout << std::endl;
+    std::cout << "Enter subject name: ";
+    std::cin >> subject_name;
+    transform (subject_name.begin (), subject_name.end (), subject_name.begin (), ::toupper);
+
+    std::cout << "Enter mark: ";
+    std::cin >> mark;
+
+    if (student_log.find (subject_name) == student_log.end ()) {
+        std::cout << "Subject not found." << std::endl;
+        return false;
+    }
+
+    auto it = std::find (student_log[subject_name].begin (), student_log[subject_name].end (), mark);
+    if (it == student_log[subject_name].end ()) {
+        std::cout << "Mark not found." << std::endl;
+        return false;
+    }
+
+    student_log[subject_name].erase (it);
+
+    return true;
+}
+
+void diary () {
+    std::cout << "\t\t- Student  Diary: -" << std::endl;
+    if (student_log.empty ()) {
+        std::cout << "No marks yet!" << std::endl;
+        return;
+    }
+    for (auto &[subject, mark]: student_log) {
+        std::cout << subject << ": \t\t";
+        for (auto &m: mark) {
+            std::cout << m << " ";
+        }
+        std::cout << std::endl;
+    }
+}
+
 bool execute_choice (int choice) {
     bool result = true;
 
     switch (choice) {
         case 1:
-            std::cout << "Add a new student" << std::endl;
+            add_mark ();
             break;
         case 2:
-            std::cout << "Remove a student" << std::endl;
+            remove_mark ();
             break;
         case 3:
-            std::cout << "List all students" << std::endl;
+            diary ();
             break;
         case 4:
+            save_data (); //Saving data to file "student_log.txt"
+            break;
+        case 5:
             std::cout << "Quit" << std::endl;
             result = false;
             break;
 
         default:
-            std::cout << "Invalid choice" << std::endl;
+            std::cout << "Invalid choice. Try again!" << std::endl;
             break;
 
     }
     return result;
 }
 
-//bool execute_choice_2 (int choice) {
-//    bool result = true;
-//
-//    if (choice == 1) {
-//        std::cout << "Add a new student" << std::endl;
-//    } else if (choice == 2) {
-//        std::cout << "Remove a student" << std::endl;
-//    } else if (choice == 3) {
-//        std::cout << "List all students" << std::endl;
-//    } else if (choice == 4) {
-//        std::cout << "Quit" << std::endl;
-//        result = false;
-//    } else {
-//        std::cout << "Invalid choice" << std::endl;
-//    }
-//    return result;
-//}
-
 void log_menu () {
+    load_data (); // Loading data from file student_log.txt
 
     do {
         show_menu ();
     } while (execute_choice (get_choice ()));
 };
 
-//TODO: 1) Read switch() statement from the previous exercise
-//TODO: 2) Make Mark project menu.
-//TODO: 3) *Try to write tests.
-
 // 2 Modes : Console and Interactive
 int main (int argc, char *argv[]) {
+
     if (argc >= 2) {
         std::cout << "Console mode" << std::endl;
         for (int i = 1; i < argc; i++) {
@@ -82,6 +168,7 @@ int main (int argc, char *argv[]) {
         }
     } else {
         std::cout << "Interactive mode" << std::endl;
+
         log_menu ();
         std::cout << std::endl << "Bye!" << std::endl;
     }
