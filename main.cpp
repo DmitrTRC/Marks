@@ -16,7 +16,7 @@
 
 std::map<std::string, std::vector<int>> student_log;
 
-//std::map<int, int> demo_map;
+bool need_update = false;
 
 namespace boost::serialization {
 
@@ -42,6 +42,13 @@ void load_data () {
         ia >> student_log;
     }
 
+}
+
+
+void clear_screen (const int &n = 100) {
+    for (int i = 0; i < n; i++) {
+        std::cout << std::endl;
+    }
 }
 
 //TODO: Add your code here and write Mark's menu
@@ -76,6 +83,7 @@ void add_mark () {
     std::cout << "Enter mark: ";
     std::cin >> mark;
     student_log[subject_name].push_back (mark);
+    need_update = true;
 }
 
 bool remove_mark () {
@@ -102,7 +110,7 @@ bool remove_mark () {
     }
 
     student_log[subject_name].erase (it);
-
+    need_update = true;
     return true;
 }
 
@@ -119,13 +127,25 @@ void diary () {
         }
         std::cout << std::endl;
     }
+
 }
 
-void clear_screen (const int &n) {
-    for (int i = 0; i < n; i++) {
-        std::cout << std::endl;
+
+void saving_on_exit () {
+    std::cout << "Do you want to save data? (y/n): ";
+    char choice;
+    std::cin >> choice;
+    if (tolower (choice == 'y')) {
+        save_data ();
+
+        std::cout << "Saving data..." << std::endl;
+        save_data ();
+        std::cout << "Data saved." << std::endl;
+    } else {
+        std::cout << "Data not saved." << std::endl;
     }
 }
+
 
 bool execute_choice (int choice) {
     bool result = true;
@@ -144,7 +164,7 @@ bool execute_choice (int choice) {
             save_data (); //Saving data to file "student_log.txt"
             break;
         case 5:
-            std::cout << "Quit" << std::endl;
+            if (need_update) saving_on_exit ();
             result = false;
             break;
 
