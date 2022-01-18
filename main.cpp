@@ -6,6 +6,8 @@
 #include <vector>
 #include <map>
 #include <ios>
+#include <limits>
+#include <istream>
 
 #include <boost/archive/text_oarchive.hpp>
 #include <boost/archive/text_iarchive.hpp>
@@ -44,8 +46,19 @@ void load_data () {
 
 }
 
+void flush_stream (std::istream &in) {
+    in.ignore (std::numeric_limits<std::streamsize>::max (), '\n');
+    in.clear ();
+}
 
-void clear_screen (const int &n = 100) {
+
+void waiting_for_enter () {
+    std::cout << "Press [Enter] to continue . . .";
+    flush_stream (std::cin);
+    std::cin.get ();
+}
+
+void clear_screen (const int &n = 50) {
     for (int i = 0; i < n; i++) {
         std::cout << std::endl;
     }
@@ -127,7 +140,7 @@ void diary () {
         }
         std::cout << std::endl;
     }
-
+    waiting_for_enter ();
 }
 
 
