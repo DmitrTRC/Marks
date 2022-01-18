@@ -64,8 +64,7 @@ void clear_screen (const int &n = 50) {
     }
 }
 
-//TODO: Add your code here and write Mark's menu
-//TODO: Add functions handlers;
+
 void show_menu () {
     std::cout << std::endl << std::endl;
     std::cout << "\t\t\t* Main Menu *" << std::endl;
