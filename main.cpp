@@ -121,6 +121,12 @@ void diary () {
     }
 }
 
+void clear_screen (const int &n) {
+    for (int i = 0; i < n; i++) {
+        std::cout << std::endl;
+    }
+}
+
 bool execute_choice (int choice) {
     bool result = true;
 
