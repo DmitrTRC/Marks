@@ -4,7 +4,7 @@ project(Marks)
 
 set(CMAKE_CXX_STANDARD 20)
 
-# see https://cmake.org/cmake/help/latest/module/FindBoost.html
+
 find_package(Boost REQUIRED)
 
 if (NOT Boost_FOUND)
@@ -20,7 +20,8 @@ include_directories(${Boost_INCLUDE_DIR})
 find_package(Boost COMPONENTS serialization)
 
 
-add_executable(Marks main.cpp)
+add_executable(Marks main.cpp )
+
 
 target_link_libraries(Marks ${Boost_LIBRARIES})
 

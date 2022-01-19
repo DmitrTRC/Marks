@@ -1,7 +1,7 @@
 #include <fstream>
 #include <iostream>
 
-#include <iostream>
+
 #include <string>
 #include <vector>
 #include <map>
@@ -18,6 +18,7 @@
 
 std::map<std::string, std::vector<int>> student_log;
 
+
 bool need_update = false;
 
 namespace boost::serialization {
@@ -32,6 +33,7 @@ void save_data () {
     std::ofstream ofs ("student_log.txt");
     boost::archive::text_oarchive oa (ofs);
     oa << student_log;
+    need_update = false;
 }
 
 void load_data () {
@@ -64,7 +66,7 @@ void clear_screen (const int &n = 50) {
     }
 }
 
-
+//TODO: Refactor this function
 void show_menu () {
     std::cout << std::endl << std::endl;
     std::cout << "\t\t\t* Main Menu *" << std::endl;
@@ -200,7 +202,7 @@ void log_menu () {
 int main (int argc, char *argv[]) {
 
     if (argc >= 2) {
-        std::cout << "Console mode" << std::endl;
+        std::cout << "Console mode. Not implemented yet!" << std::endl;
         for (int i = 1; i < argc; i++) {
             std::cout << argv[i] << std::endl;
         }
