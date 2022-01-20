@@ -198,3 +198,28 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+build/Marks
+build/student_log.txt
+build/.cmake/api/v1/query/client-integration-vscode/cache-v2
+build/.cmake/api/v1/query/client-integration-vscode/cmakeFiles-v1
+build/.cmake/api/v1/query/client-integration-vscode/codemodel-v2
+build/.cmake/api/v1/reply/cache-v2-41bc59fa9921fe71edf4.json
+build/.cmake/api/v1/reply/cache-v2-db3f898d3f5169b6a61a.json
+build/.cmake/api/v1/reply/cmakeFiles-v1-aebf168b6bdb546bbb4e.json
+build/.cmake/api/v1/reply/codemodel-v2-3a8e12d4ba843ccd030c.json
+build/.cmake/api/v1/reply/codemodel-v2-39232d4fda2c5303d8a4.json
+build/.cmake/api/v1/reply/index-2021-12-17T17-36-54-0112.json
+build/.cmake/api/v1/reply/index-2022-01-20T17-02-06-0127.json
+build/.cmake/api/v1/reply/target-Marks-Debug-31e2c0953dcc437d6919.json
+build/.cmake/api/v1/reply/target-Marks-Debug-f5f80b4d3a74d7361322.json
+build/.cmake/api/v1/reply/toolchains-v1-79b52cea46e14098686f.json
+build/.cmake/api/v1/reply/toolchains-v1-a2547a68fde1e24c5efe.json
+build/student_log.txt
+build/.cmake/api/v1/reply/cache-v2-db3f898d3f5169b6a61a.json
+build/.cmake/api/v1/reply/codemodel-v2-39232d4fda2c5303d8a4.json
+build/.cmake/api/v1/reply/index-2021-12-17T17-36-54-0112.json
+build/.cmake/api/v1/reply/target-Marks-Debug-f5f80b4d3a74d7361322.json
+build/.cmake/api/v1/reply/toolchains-v1-79b52cea46e14098686f.json
+build/Marks
+build/CMakeCache.txt
+/.vscode/

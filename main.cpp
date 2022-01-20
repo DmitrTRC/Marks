@@ -8,6 +8,7 @@
 #include <ios>
 #include <limits>
 #include <istream>
+#include <iomanip>
 
 #include <boost/archive/text_oarchive.hpp>
 #include <boost/archive/text_iarchive.hpp>
@@ -21,13 +22,13 @@ std::map<std::string, std::vector<int>> student_log;
 
 bool need_update = false;
 
-namespace boost::serialization {
-
-    template<class Archive>
-    void serialize (Archive &ar, std::map<std::string, std::vector<int>> &st_log) {
-        ar & st_log;
-    }
-}
+//namespace boost::serialization {
+//
+//    template<class Archive>
+//    void serialize (Archive &ar, std::map<std::string, std::vector<int>> &st_log) {
+//        ar & st_log;
+//    }
+//}
 
 void save_data () {
     std::ofstream ofs ("student_log.txt");
@@ -69,12 +70,13 @@ void clear_screen (const int &n = 50) {
 //TODO: Refactor this function
 void show_menu () {
     std::cout << std::endl << std::endl;
-    std::cout << "\t\t\t* Main Menu *" << std::endl;
+    std::cout << std::setw (30) << "* Main Menu *" << std::endl;
     std::cout << "1. Add a new Mark " << std::endl;
     std::cout << "2. Remove a Mark" << std::endl;
     std::cout << "3. Diary" << std::endl;
     std::cout << "4. Save Data" << std::endl;
     std::cout << "5. Quit" << std::endl;
+    std::cout << "C. Clear all records." << std::endl;
 }
 
 

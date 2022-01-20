@@ -19,8 +19,13 @@ include_directories(${Boost_INCLUDE_DIR})
 
 find_package(Boost COMPONENTS serialization)
 
+if (NOT Boost_FOUND)
+    message(FATAL_ERROR  "Boost serialization module NOT FOUND! ")
+endif()
 
-add_executable(Marks main.cpp )
+    message(STATUS "Boost serialization module OK.")
+
+add_executable(Marks main.cpp Console_color.h)
 
 
 target_link_libraries(Marks ${Boost_LIBRARIES})
