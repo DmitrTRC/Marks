@@ -16,6 +16,8 @@
 #include <boost/serialization/vector.hpp>
 #include <boost/serialization/string.hpp>
 
+#include "Console_color.h"
+
 
 std::map<std::string, std::vector<int>> student_log;
 
@@ -70,13 +72,15 @@ void clear_screen (const int &n = 50) {
 //TODO: Refactor this function
 void show_menu () {
     std::cout << std::endl << std::endl;
-    std::cout << std::setw (30) << "* Main Menu *" << std::endl;
+    std::cout << std::setw (30) << Color::Modifier (Color::FG_GREEN) << "* Main Menu *"
+              << Color::Modifier (Color::FG_DEFAULT) << std::endl;
     std::cout << "1. Add a new Mark " << std::endl;
     std::cout << "2. Remove a Mark" << std::endl;
     std::cout << "3. Diary" << std::endl;
     std::cout << "4. Save Data" << std::endl;
     std::cout << "5. Quit" << std::endl;
-    std::cout << "C. Clear all records." << std::endl;
+    std::cout << Color::Modifier (Color::FG_RED) << "6. Clear all records." << Color::Modifier (Color::FG_DEFAULT)
+              << std::endl;
 }
 
 
@@ -146,6 +150,20 @@ void diary () {
     waiting_for_enter ();
 }
 
+void clear_all_data (const std::string &file = "student_log.txt") {
+    std::cout << "Are you sure you want to clear all data? [y/n] ";
+    char choice;
+    std::cin >> choice;
+    if (choice == 'y') {
+        std::ofstream ofs (file);
+        ofs.close ();
+        student_log.clear ();
+        std::cout << "All data cleared." << std::endl;
+    } else {
+        std::cout << "Data not cleared." << std::endl;
+    }
+
+}
 
 void saving_on_exit () {
     std::cout << "Do you want to save data? (y/n): ";
@@ -182,6 +200,9 @@ bool execute_choice (int choice) {
         case 5:
             if (need_update) saving_on_exit ();
             result = false;
+            break;
+        case 6:
+            clear_all_data ();
             break;
 
         default:
