@@ -223,3 +223,9 @@ build/.cmake/api/v1/reply/toolchains-v1-79b52cea46e14098686f.json
 build/Marks
 build/CMakeCache.txt
 /.vscode/
+build/.cmake/api/v1/query/client-vscode/query.json
+build/.cmake/api/v1/reply/cache-v2-b21e8470a72ab2aee454.json
+build/.cmake/api/v1/reply/codemodel-v2-4216f2bcf3973a484988.json
+build/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json
+build/.cmake/api/v1/reply/index-2022-01-24T15-12-02-0137.json
+build/.cmake/api/v1/reply/target-Marks-Debug-91c5175feed03bcd5bf3.json
