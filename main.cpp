@@ -183,6 +183,16 @@ bool backup_data(){
 }
     
 
+void load_from_backup(){
+    std::ifstream ifs ("student_log.txt");
+    if (!ifs) {
+        std::cout << "Database not found. Skip loading data." << std::endl;
+        return;
+    } else {
+        boost::archive::text_iarchive ia (ifs);
+        ia >> student_log;
+    }
+}
 
 void saving_on_exit () {
     std::cout << "Do you want to save data? (y/n): ";
