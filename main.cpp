@@ -39,6 +39,10 @@ void save_data () {
     need_update = false;
 }
 
+bool load_archive_data(){
+    return true;
+}
+
 void load_data () {
     std::ifstream ifs ("student_log.txt");
     if (!ifs) {
