@@ -79,7 +79,6 @@ void show_menu () {
     std::cout << "3. Diary" << std::endl;
     std::cout << "4. Save Data" << std::endl;
     std::cout << "5. Quit" << std::endl;
-    std::cout << Color::Modifier ( Color::FG_BLUE) << "6. Backup data" << Color::Modifier ( Color :: FG_DEFAULT) << std::endl;
     std::cout << Color::Modifier (Color::FG_RED) << "6. Clear all records" << Color::Modifier (Color::FG_DEFAULT)
               << std::endl;
 }
@@ -165,34 +164,6 @@ void clear_all_data (const std::string &file = "student_log.txt") {
     }
 
 }
-bool backup_data(){
-    std::cout << "Are you sure you want to backup data? [y/n] ";
-    char choice;
-    std::cin >> choice;
-    if (choice == 'y') {
-        std::ofstream ofs ("student_log_backup");
-        boost::archive::text_oarchive oa (ofs);
-        oa << student_log;
-        std::cout << "Data backed up." << std::endl;
-        return true;
-    } else {
-        std::cout << "Data not backed up." << std::endl;
-        return false;
-    }
-
-}
-    
-
-void load_from_backup(){
-    std::ifstream ifs ("student_log.txt");
-    if (!ifs) {
-        std::cout << "Database not found. Skip loading data." << std::endl;
-        return;
-    } else {
-        boost::archive::text_iarchive ia (ifs);
-        ia >> student_log;
-    }
-}
 
 void saving_on_exit () {
     std::cout << "Do you want to save data? (y/n): ";
@@ -231,10 +202,6 @@ bool execute_choice (int choice) {
             result = false;
             break;
         case 6:
-            backup_data();
-            break;
-
-        case 7:
             clear_all_data ();
             break;
 
