@@ -73,7 +73,6 @@ void clear_screen (const int &n = 50) {
     }
 }
 
-//TODO: Refactor this function
 void show_menu () {
     std::cout << std::endl << std::endl;
     std::cout << std::setw (30) << Color::Modifier (Color::FG_GREEN) << "* Main Menu *"
@@ -83,7 +82,7 @@ void show_menu () {
     std::cout << "3. Diary" << std::endl;
     std::cout << "4. Save Data" << std::endl;
     std::cout << "5. Quit" << std::endl;
-    std::cout <<Color::Modifier(Color::BG_BLUE) << "6. Create a backup" << Color::Modifier(Color::BG_DEFAULT) <<std::endl;
+    std::cout <<Color::Modifier(Color::FG_BLUE) << "6. Create a backup" << Color::Modifier(Color::FG_DEFAULT) <<std::endl;
     std::cout << Color::Modifier (Color::FG_RED) << "7. Clear all records" << Color::Modifier (Color::FG_DEFAULT)
               << std::endl;
 }
