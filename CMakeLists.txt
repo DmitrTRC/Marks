@@ -2,7 +2,10 @@ cmake_minimum_required(VERSION 3.21)
 
 project(Marks)
 
+set_property(GLOBAL PROPERTY CMAKE_CXX_STANDARD_REQUIRED ON)
+set_property(GLOBAL PROPERTY CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD 20)
+
 
 
 find_package(Boost REQUIRED)
@@ -25,7 +28,8 @@ endif()
 
     message(STATUS "Boost serialization module OK.")
 
-add_executable(Marks main.cpp Console_color.h)
+#add_executable(Marks main.cpp Console_color.h)
+add_executable(Marks number.cpp)
 
 
 target_link_libraries(Marks ${Boost_LIBRARIES})
