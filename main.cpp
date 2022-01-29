@@ -21,6 +21,7 @@
 
 std::map<std::string, std::vector<int>> student_log;
 
+std::string Password = "developer";
 
 bool need_update = false;
 
