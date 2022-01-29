@@ -29,7 +29,7 @@ endif()
     message(STATUS "Boost serialization module OK.")
 
 #add_executable(Marks main.cpp Console_color.h)
-add_executable(Marks number.cpp)
+add_executable(Marks number2.cpp)
 
 
 target_link_libraries(Marks ${Boost_LIBRARIES})
