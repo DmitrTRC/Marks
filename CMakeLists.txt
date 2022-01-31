@@ -5,28 +5,16 @@ project(Marks)
 set(CMAKE_CXX_STANDARD 20)
 
 
-find_package(Boost REQUIRED)
-
-if (NOT Boost_FOUND)
-    message(FATAL_ERROR "Could not find boost!")
-endif ()
-
-message(STATUS "Boost_INCLUDE_DIRS: ${Boost_INCLUDE_DIRS}")
-message(STATUS "Boost_LIBRARIES: ${Boost_LIBRARIES}")
-message(STATUS "Boost_VERSION: ${Boost_VERSION}")
-
-include_directories(${Boost_INCLUDE_DIR})
-
-find_package(Boost COMPONENTS serialization)
-
-if (NOT Boost_FOUND)
-    message(FATAL_ERROR  "Boost serialization module NOT FOUND! ")
-endif()
-
-    message(STATUS "Boost serialization module OK.")
-
-add_executable(Marks main.cpp Console_color.h)
 
 
-target_link_libraries(Marks ${Boost_LIBRARIES})
+include_directories(src)
+
+add_subdirectory(src)
+#add_subdirectory(Tests)
+#add_subdirectory(lib/googletest)
+
+#add_executable(Marks main.cpp Console_color.h)
+
+
+
 
