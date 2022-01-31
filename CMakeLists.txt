@@ -4,14 +4,11 @@ project(Marks)
 
 set(CMAKE_CXX_STANDARD 20)
 
-
-
-
 include_directories(src)
 
+add_subdirectory(lib/googletest)
 add_subdirectory(src)
-#add_subdirectory(Tests)
-#add_subdirectory(lib/googletest)
+add_subdirectory(Tests)
 
 #add_executable(Marks main.cpp Console_color.h)
 
