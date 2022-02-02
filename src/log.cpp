@@ -16,7 +16,7 @@
 #include <boost/serialization/string.hpp>
 
 #include "Console_color.h"
-#include "main.h"
+#include "log.h"
 
 std::map<std::string, std::vector<int>> student_log;
 
