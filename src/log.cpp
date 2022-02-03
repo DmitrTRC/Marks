@@ -23,27 +23,27 @@ std::map<std::string, std::vector<int>> student_log;
 std::string Password = "developer";
 
 bool need_update = false;
-int main(int argc, char *argv[])
-{
-
-    if (argc >= 2)
-    {
-        std::cout << "Console mode. Not implemented yet!" << std::endl;
-        for (int i = 1; i < argc; i++)
-        {
-            std::cout << argv[i] << std::endl;
-        }
-    }
-    else
-    {
-        std::cout << "Interactive mode" << std::endl;
-
-        log_menu();
-        std::cout << std::endl
-                  << "Bye!" << std::endl;
-    }
-    return 0;
-}
+//int main(int argc, char *argv[])
+//{
+//
+//    if (argc >= 2)
+//    {
+//        std::cout << "Console mode. Not implemented yet!" << std::endl;
+//        for (int i = 1; i < argc; i++)
+//        {
+//            std::cout << argv[i] << std::endl;
+//        }
+//    }
+//    else
+//    {
+//        std::cout << "Interactive mode" << std::endl;
+//
+//        log_menu();
+//        std::cout << std::endl
+//                  << "Bye!" << std::endl;
+//    }
+//    return 0;
+//}
 
 //namespace boost::serialization {
 //
