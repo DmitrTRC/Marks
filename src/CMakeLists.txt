@@ -30,8 +30,9 @@ set(SOURCES ${run_SOURCES})
 
 add_executable(${BINARY}_run ${run_SOURCES})
 
-add_library(${BINARY}_lib STATIC ${run_SOURCES})
 
-target_link_libraries(${BINARY_run} ${Boost_LIBRARIES})
+#add_library(${BINARY}_lib STATIC ${run_SOURCES})
+target_link_libraries(${BINARY}_run ${Boost_LIBRARIES})
+
 
 
