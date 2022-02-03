@@ -28,7 +28,7 @@ file(GLOB_RECURSE run_SOURCES LIST_DIRECTORIES true *.h *.cpp)
 
 set(SOURCES ${run_SOURCES})
 
-add_executable(${BINARY}_run ${run_SOURCES})
+#add_executable(${BINARY}_run ${run_SOURCES})
 
 
 add_library(${BINARY}_lib STATIC ${run_SOURCES})
@@ -37,7 +37,7 @@ target_include_directories(${BINARY}_lib PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}
         )
 
-target_link_libraries(${BINARY}_run ${Boost_LIBRARIES})
+target_link_libraries(${BINARY}_lib ${Boost_LIBRARIES})
 
 
 
