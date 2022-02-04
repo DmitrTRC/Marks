@@ -23,13 +23,16 @@ std::map<std::string, std::vector<int>> student_log;
 std::string Password = "developer";
 
 bool need_update = false;
+
 std::string Get_Password(){
     return Password;
 }
+
 void Set_Password ( const std::string& password )
 {
        Password = password;
 }
+
 //TODO: Refactor this using a compare function
 /*std::string a = "Hello
  * std::string b = "HelloWorld";
