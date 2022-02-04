@@ -20,27 +20,29 @@ using namespace std;
 std::map<std::string, std::vector<int>> student_log;
 std::string Password = "developer";
 
+bool need_update = false;
 
 void Set_Password(std::string pass)
 {
-    std::cout<<"enter pass";
-    std::cin>>pass;
     Password=pass;
 }
 
-
+//TODO: Refactor this using a compare function
+/*std::string a = "Hello
+ * std::string b = "HelloWorld";
+ * std::cout << a.compare(b) << std::endl;
+ */
 bool Check_Password( std::string pass){
     bool status= true;
     if (pass!=Password){
         status = false;
     }
     return status;
-    
 }
 
 
 
-bool need_update = false;
+
 
 //namespace boost::serialization {
 //
