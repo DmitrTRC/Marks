@@ -27,24 +27,23 @@ bool need_update = false;
 std::string Get_Password(){
     return Password;
 }
-
-void Set_Password ( const std::string& password )
+void Set_Password ( std::string password )
 {
-       Password = password;
+    Password = password;
 }
-
 //TODO: Refactor this using a compare function
 /*std::string a = "Hello
  * std::string b = "HelloWorld";
  * std::cout << a.compare(b) << std::endl;
  */
-bool Check_Password( const std::string  &pass){
+bool Check_Password( std::string pass){
     bool status= true;
     if (pass!=Password){
         status = false;
     }
     return status;
 }
+
 
 
 
