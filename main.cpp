@@ -1,6 +1,6 @@
 #include <fstream>
 #include <iostream>
-
+using namespace std;
 
 #include <string>
 #include <vector>
@@ -17,9 +17,27 @@
 #include <boost/serialization/string.hpp>
 
 #include "Console_color.h"
-
-
 std::map<std::string, std::vector<int>> student_log;
+std::string Password = "developer";
+
+
+void Set_Password(std::string pass)
+{
+    std::cout<<"enter pass";
+    std::cin>>pass;
+    Password=pass;
+}
+
+
+bool Check_Password( std::string pass){
+    bool status= true;
+    if (pass!=Password){
+        status = false;
+    }
+    return status;
+    
+}
+
 
 
 bool need_update = false;
