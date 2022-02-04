@@ -26,7 +26,7 @@ bool need_update = false;
 std::string Get_Password(){
     return Password;
 }
-void Set_Password ( std::string password )
+void Set_Password ( const std::string& password )
 {
        Password = password;
 }
@@ -35,7 +35,7 @@ void Set_Password ( std::string password )
  * std::string b = "HelloWorld";
  * std::cout << a.compare(b) << std::endl;
  */
-bool Check_Password( std::string pass){
+bool Check_Password( const std::string  &pass){
     bool status= true;
     if (pass!=Password){
         status = false;
