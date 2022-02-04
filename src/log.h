@@ -20,3 +20,6 @@ void saving_on_exit ();
 bool execute_choice (int);
 void log_menu ();
 bool Check_Password( std::string pass);
+void Set_Password ( std::string );
+std::string Get_Password ();
+
